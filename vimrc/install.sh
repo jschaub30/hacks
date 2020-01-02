@@ -1,16 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -x
-mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
 
-git clone --recursive git@github.com:codepushr/vim-go-runtime.git ~/.vim-go-runtime
-sh ~/.vim-go-runtime/install.sh
+# Install awesome-vimrc
+if [ ! -e ~/.vim_runtime ]; then
+    git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+    sh ~/.vim_runtime/install_awesome_vimrc.sh
+fi
 
-mv ~/.vim_go_runtime/bundle/pristine/auto-pairs/plugin/auto-pairs.vim \
-   ~/.vim_go_runtime/bundle/pristine/auto-pairs/plugin/auto-pairs.old
+# Install pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Install vim-syntastic as pathogen bundle
+if [ ! -e ~/.vim/bundle/syntastic ]; then
+    cd ~/.vim/bundle && \
+    git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+fi
+
 cp ~/.vimrc ~/.vimrc.bak
-cat "$DIR/vimrc" > ~/.vimrc
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cp "$DIR/vimrc" ~/.vimrc
