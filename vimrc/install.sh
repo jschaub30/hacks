@@ -12,4 +12,5 @@ mv ~/.vim_go_runtime/bundle/pristine/auto-pairs/plugin/auto-pairs.vim \
    ~/.vim_go_runtime/bundle/pristine/auto-pairs/plugin/auto-pairs.old
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cp ~/.vimrc ~/.vimrc.bak
 cat "$DIR/vimrc" > ~/.vimrc
