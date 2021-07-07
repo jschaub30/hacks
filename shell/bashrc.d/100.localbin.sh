@@ -1,2 +1,1 @@
-export PATH="$PATH:~/.local/bin"
-export DYLD_LIBRARY_PATH=/opt/mqm/lib64
+export PATH="/usr/local/opt/libxml2/bin:~/.local/bin:$PATH"

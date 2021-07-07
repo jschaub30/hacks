@@ -6,7 +6,7 @@ if ! which brew >/dev/null 2>&1 ; then
     exit 1
 fi
 
-for PKG in jq tree shellcheck qpdf wget; do
+for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats pyenv; do
     if which "$PKG" >/dev/null 2>&1; then
         echo "$PKG already installed"
     else
