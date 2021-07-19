@@ -49,9 +49,9 @@ else
     brew install gnupg
 fi
 
-if pyenv virtualenv -h >/dev/null 2>&1; then
-    echo "pyenv-virtualenv already installed"
-else
-    echo "Installing pyenv-virtualenv"
-    brew install pyenv-virtualenv
-fi
+# if pyenv virtualenv -h >/dev/null 2>&1; then
+    # echo "pyenv-virtualenv already installed"
+# else
+    # echo "Installing pyenv-virtualenv"
+    # brew install pyenv-virtualenv
+# fi
