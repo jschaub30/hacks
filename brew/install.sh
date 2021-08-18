@@ -49,6 +49,13 @@ else
     brew install gnupg
 fi
 
+if which pdflatex >/dev/null 2>&1; then
+    echo "basictex already installed"
+else
+    echo "Installing basictex"
+    brew install --cask basictex
+fi
+
 # if pyenv virtualenv -h >/dev/null 2>&1; then
     # echo "pyenv-virtualenv already installed"
 # else
