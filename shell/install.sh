@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
-
-echo "WARNING: this script will alter your .bashrc and .profile settings."
+echo "WARNING: these files and directories will be overwritten:"
+echo "  ~/.bashrc"
+echo "  ~/.profile"
+echo "  ~/.inputrc"
+echo "  ~/.local/bashrc.d/*"
+echo "  ~/.local/profile.d/*"
+echo
+echo "Put all scripts local to this machine in:"
+echo "  ~/.local/bashrc.local  # will not be altered by this script"
+echo
 echo "Backups will be created in case something goes wrong."
+echo
+
 while true; do
     read -p "Continue? " yn
     case $yn in
@@ -22,7 +32,8 @@ if [ -e "$HOME/.local" ]; then
     cp ~/.bashrc "$BAK/dot_bashrc"
     cp ~/.profile "$BAK/dot_profile"
 fi
-rm -rf ~/.local/bashrc.d
+
+echo
 
 echo "Writing ~/.inputrc to search through your history using the up and down arrows"
 cat > ~/.inputrc <<'EOF'
@@ -32,6 +43,8 @@ set enable-bracketed-paste off
 EOF
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+rm -rf ~/.local/bashrc.d
+rm -rf ~/.local/profile.d
 mkdir -p ~/.local/bashrc.d ~/.local/bashrc.local ~/.local/bin ~/.local/profile.d
 
 echo
