@@ -48,8 +48,8 @@ done
 
 echo
 for FN in "${DIR}/profile.d"/*; do
-    echo "Copying $FN to ~/profile.d/bin"
-    cp "$FN" ~/.local/bin/
+    echo "Copying $FN to ~/profile.d/"
+    cp "$FN" ~/.local/profile.d/
 done
 
 echo "Creating ~/.bashrc"
