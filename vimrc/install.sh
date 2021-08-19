@@ -9,9 +9,9 @@ if true; then
     if [ ! -e ~/.vim_runtime ]; then
         git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
         sh ~/.vim_runtime/install_awesome_vimrc.sh
+        # but move auto-pairs
+        mv ~/.vim_runtime/sources_non_forked/auto-pairs ~/.vim_runtime/
     fi
-    # but move auto-pairs
-    mv ~/.vim_runtime/sources_non_forked/auto-pairs ~/.vim_runtime/
 fi
 
 # Install pathogen
