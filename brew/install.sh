@@ -6,7 +6,7 @@ if ! which brew >/dev/null 2>&1 ; then
     exit 1
 fi
 
-for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats pyenv ffmpeg; do
+for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats pyenv ffmpeg gnuplot; do
     if which "$PKG" >/dev/null 2>&1; then
         echo "$PKG already installed"
     else
@@ -62,3 +62,11 @@ fi
     # echo "Installing pyenv-virtualenv"
     # brew install pyenv-virtualenv
 # fi
+
+if which vault >/dev/null 2>&1; then
+    echo "vault already installed"
+else
+    echo "Installing vault"
+    brew tap hashicorp/tap
+    brew install hashicorp/tap/vault
+fi

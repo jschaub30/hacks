@@ -30,3 +30,4 @@ set backupdir=~/.vim/backup/
 set backup
 set writebackup
 
+set mouse=a
