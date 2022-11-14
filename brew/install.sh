@@ -6,7 +6,7 @@ if ! which brew >/dev/null 2>&1 ; then
     exit 1
 fi
 
-for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats ffmpeg gnuplot; do
+for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats ffmpeg gnuplot kubectl helm; do
     if which "$PKG" >/dev/null 2>&1; then
         echo "$PKG already installed"
     else
@@ -70,4 +70,3 @@ else
     echo "installing pyenv--NOT using homebrew"
     curl https://pyenv.run | bash
 fi
-
