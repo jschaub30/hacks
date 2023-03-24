@@ -1,4 +1,4 @@
-.PHONY: shell brew vim
+.PHONY: shell brew vim ubuntu
 
 help :
 	@echo "-------------------------------------------------------"
@@ -19,3 +19,6 @@ vim:
 
 brew:
 	brew/install.sh
+
+ubuntu:
+	ubuntu/install.sh
