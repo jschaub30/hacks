@@ -26,7 +26,7 @@ if [ ! -e ~/.vim/bundle/syntastic ]; then
     git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 fi
 
-touch ~/.vimrc
-cp ~/.vimrc ~/.vimrc.bak.$(date +"%Y-%m-%d_%H:%M:%S")
+touch "$HOME/.vimrc"
+cp "$HOME"/.vimrc "$HOME"/.vimrc.bak.$(date +"%Y-%m-%d_%H:%M:%S")
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cp "$DIR/vimrc" ~/.vimrc
