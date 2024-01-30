@@ -90,3 +90,10 @@ for FN in $HOME/.local/profile.d/9*.sh ; do
     source "$FN"
 done
 EOF
+
+echo "Checking timezone"
+timedatectl
+
+echo
+echo "If needed, set the timezone using 'sudo timedatectl set-timezone America/Denver'"
+

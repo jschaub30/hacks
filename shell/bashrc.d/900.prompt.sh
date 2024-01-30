@@ -4,7 +4,7 @@ set_prompt(){
     elif [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
         python_venv="(🐍 ${CONDA_DEFAULT_ENV}) "
     fi
-    DATESTR=$(date +"%H:%m")
+    DATESTR=$(date +"%H:%M")
 
     if [[ "$(hostname -s)" == "APT"* ]]; then
         HOST_CHAR=""
