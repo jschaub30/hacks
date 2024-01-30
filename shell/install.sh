@@ -54,10 +54,12 @@ for FN in "${DIR}/bashrc.d"/*; do
 done
 
 echo
-for FN in "${DIR}/bin"/*; do
-    echo "Copying $FN to ~/.local/bin"
-    cp "$FN" ~/.local/bin/
-done
+if [ -f "${DIR}/bin" ]; then
+    for FN in "${DIR}/bin"/*; do
+        echo "Copying $FN to ~/.local/bin"
+        cp "$FN" ~/.local/bin/
+    done
+fi
 
 echo
 for FN in "${DIR}/profile.d"/*; do
