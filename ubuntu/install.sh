@@ -25,6 +25,7 @@ sudo apt install -y \
     libssl-dev \
     liblzma-dev \
     nodejs \
+    npm \
     golang-go
 
 
