@@ -4,6 +4,9 @@ set -x
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
 
+DATESTR=$(date +"%Y-%m-%d_%H:%M:%S")
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if true; then
     # Install awesome-vimrc
     if [ ! -e ~/.vim_runtime ]; then
@@ -27,6 +30,5 @@ if [ ! -e ~/.vim/bundle/syntastic ]; then
 fi
 
 touch "$HOME/.vimrc"
-cp "$HOME"/.vimrc "$HOME"/.vimrc.bak.$(date +"%Y-%m-%d_%H:%M:%S")
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cp "$HOME/.vimrc" "$HOME/.vimrc.bak.$DATESTR"
 cp "$DIR/vimrc" ~/.vimrc

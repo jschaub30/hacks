@@ -23,7 +23,10 @@ sudo apt install -y \
     libncurses-dev \
     libsqlite3-dev \
     libssl-dev \
-    liblzma-dev
+    liblzma-dev \
+    nodejs \
+    npm \
+    golang-go
 
 
 if which pyenv > /dev/null 2>&1; then
