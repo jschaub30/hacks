@@ -12,7 +12,7 @@ catch
 endtry
 
 set relativenumber
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['mypy', 'pylint']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
