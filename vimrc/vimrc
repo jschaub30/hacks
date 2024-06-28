@@ -1,27 +1,11 @@
-execute pathogen#infect()
-set runtimepath+=~/.vim_runtime
-
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
-
-try
-source ~/.vim_runtime/my_configs.vim
-catch
-endtry
-
 set relativenumber
-let g:syntastic_python_checkers = ['mypy', 'pylint']
+set ruler
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
 
 set undodir=~/.vim/undo/
 set undofile
@@ -31,3 +15,28 @@ set backup
 set writebackup
 
 set mouse=a
+
+syntax on
+
+autocmd FileType sh setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 expandtab
+filetype plugin indent on
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType python setlocal smartindent autoindent
+
+let g:ale_linters={
+\ 'python': ['ruff', 'pyright'],
+\}
+
+let g:ale_fixers={
+\ 'python': ['ruff'],
+\}
+
+let g:ale_fixers={
+\ '*':['remove_trailing_lines', 'trim_whitespace'],
+\ 'python': ['ruff_format', 'isort'],
+\ 'sh': ['shfmt'],
+\ 'go': ['gofmt', 'goimports'],
+\}
+
+let g:ale_fix_on_save = 1
