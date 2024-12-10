@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Install basic homebrew packages, if necessary
 
+set -e
+
 if ! which brew >/dev/null 2>&1 ; then
     echo "brew not installed. Exiting..."
     exit 1
 fi
 
-for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats ffmpeg gnuplot kubectl helm; do
+for PKG in xz jq tree shellcheck qpdf wget pandoc ffmpeg gnuplot kubectl helm tmux; do
     if which "$PKG" >/dev/null 2>&1; then
         echo "$PKG already installed"
     else
@@ -14,6 +16,14 @@ for PKG in jq tree shellcheck qpdf wget pandoc xz git-quick-stats ffmpeg gnuplot
         brew install "$PKG"
     fi
 done
+
+if which npm >/dev/null 2>&1; then
+    echo "node already installed"
+else
+    echo "Installing node"
+    brew install node@22
+fi
+
 if which gtimeout >/dev/null 2>&1; then
     echo "coreutils already installed"
 else
@@ -70,3 +80,16 @@ else
     echo "installing pyenv--NOT using homebrew"
     curl https://pyenv.run | bash
 fi
+
+pyenv install 3.12.8
+pyenv install 3.11.11
+pyenv install 3.10.16
+pyenv install 3.9.21
+
+if which op > /dev/null 2>&1; then
+    echo "op (1password CLI) already installed"
+else
+    echo "installing op (1password CLI)"
+    brew install 1password-cli
+fi
+
