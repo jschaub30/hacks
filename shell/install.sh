@@ -54,6 +54,14 @@ for FN in "${DIR}/bashrc.d"/*; do
 done
 
 echo
+if [[ "$(uname)" == "Darwin" ]]; then
+  for FN in "${DIR}/bashrc.mac"/*; do
+      echo "Copying $FN to ~/.local/bashrc.mac/"
+      cp "$FN" ~/.local/bashrc.d/
+  done
+fi
+
+echo
 if [ -f "${DIR}/bin" ]; then
     for FN in "${DIR}/bin"/*; do
         echo "Copying $FN to ~/.local/bin"

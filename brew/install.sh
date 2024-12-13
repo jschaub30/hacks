@@ -4,8 +4,8 @@
 set -e
 
 if ! which brew >/dev/null 2>&1 ; then
-    echo "brew not installed. Exiting..."
-    exit 1
+    echo "installing brew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 for PKG in xz jq tree shellcheck qpdf wget pandoc ffmpeg gnuplot kubectl helm tmux; do
@@ -66,12 +66,14 @@ else
     brew install --cask basictex
 fi
 
-if which vault >/dev/null 2>&1; then
-    echo "vault already installed"
-else
-    echo "Installing vault"
-    brew tap hashicorp/tap
-    brew install hashicorp/tap/vault
+if false; then
+    if which vault >/dev/null 2>&1; then
+      echo "vault already installed"
+  else
+      echo "Installing vault"
+      brew tap hashicorp/tap
+      brew install hashicorp/tap/vault
+  fi
 fi
 
 if which pyenv > /dev/null 2>&1; then
