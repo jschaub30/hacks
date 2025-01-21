@@ -17,10 +17,17 @@ for PKG in xz jq tree shellcheck qpdf wget pandoc ffmpeg gnuplot kubectl helm tm
     fi
 done
 
-if which npm >/dev/null 2>&1; then
-    echo "node already installed"
+if which nvm >/dev/null 2>&1; then
+    echo "nvm already installed"
 else
-    echo "Installing node"
+    echo "Installing nvm"
+    brew install nvm
+fi
+
+if which npm >/dev/null 2>&1; then
+    echo "npm already installed"
+else
+    echo "Installing node@22"
     brew install node@22
 fi
 
